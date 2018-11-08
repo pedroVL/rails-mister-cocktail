@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div class="navbar-wagon">
+  <h1>Cocktails (<%= @cocktails.count %>)</h1>
+  <%= link_to 'Add cocktail', new_cocktail_path, class: "btn btn-warning navbar-wagon-right" %>
+</div>
+<div class="container">
+  <!-- <div class="row"> -->
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="cocktail">
+          <h3><strong><%= cocktail.name %></strong></h3><br>
+          <ul>
+            <li><strong>Ingredients:</strong></li>
+            <% cocktail.ingredients.each do |ingredient| %>
+            <li>
+              <%= ingredient.name  %>
+            </li>
+            <% end %>
+          </ul>
+          <%= link_to 'More info', cocktail %> | <%= link_to 'Edit', edit_cocktail_path(cocktail) %> | <%= link_to 'Remove', cocktail, method: :delete %>
+        </div>
+      </div>
+    <div>
+  </div>
+  <% end %>
+  <br>
+  <br>
+
+</div>
+
+

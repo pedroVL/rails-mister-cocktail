@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ingredients (<%= @ingredients.count %>)</h1>
+
+  <div class="container">
+    <!-- <div class="row"> -->
+    <% @ingredients.each do |ingredient| %>
+      <div class="card">
+          <div class="data">
+          <h3><strong><%= ingredient.name %></strong></h3><br>
+
+        </div>
+        <div><%= link_to 'More info', ingredient %><%= link_to 'Edit', edit_ingredient_path(ingredient) %><%= link_to 'Remove', ingredient, method: :delete %></div>
+
+      </div>
+    <% end %>
+    <!-- </div> -->
+  </div>

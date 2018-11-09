@@ -1,3 +1,5 @@
-<h1>New Doses</h1>
-<%= render 'form', dose: @dose, cocktail: @cocktail %>
-<%= link_to 'Back', cocktail_path(@cocktail) %>
+<div class="guy" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('<%= cl_image_path @cocktail.photo, crop: :fill %>')">
+  <h1>Edit Cocktail</h1>
+  <%= render 'form', dose: @dose, cocktail: @cocktail %>
+  <%= link_to 'Back', cocktail_path(@cocktail) %>
+</div>

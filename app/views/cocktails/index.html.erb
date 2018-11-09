@@ -1,32 +1,36 @@
-<p id="notice"><%= notice %></p>
-<div class="navbar-wagon">
-  <h1>Cocktails (<%= @cocktails.count %>)</h1>
-  <%= link_to 'Add cocktail', new_cocktail_path, class: "btn btn-warning navbar-wagon-right" %>
-</div>
-<div class="container">
-  <!-- <div class="row"> -->
-    <div class="row">
-      <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="cocktail">
-          <h3><strong><%= cocktail.name %></strong></h3><br>
-          <ul>
-            <li><strong>Ingredients:</strong></li>
-            <% cocktail.ingredients.each do |ingredient| %>
-            <li>
-              <%= ingredient.name  %>
-            </li>
-            <% end %>
-          </ul>
-          <%= link_to 'More info', cocktail %> | <%= link_to 'Edit', edit_cocktail_path(cocktail) %> | <%= link_to 'Remove', cocktail, method: :delete %>
-        </div>
-      </div>
-    <div>
+<div class="guy" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('<%= cl_image_path 'gin_cocktails', crop: :fill %>')">
+  <div class="navbar-wagon">
+    <h1><%= link_to "Cocktails(#{@cocktails.count})", cocktails_path %></h1>
+    <%= form_tag search_cocktails_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control" %>
+    <% end %>
+    <%= link_to 'Add cocktail', new_cocktail_path, class: "btn btn-warning navbar-wagon-right" %>
   </div>
-  <% end %>
-  <br>
-  <br>
-
+  <div class="container">
+    <!-- <div class="row"> -->
+      <div class="row">
+        <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, crop: :fill %>')">
+            <h3><%= link_to cocktail.name, cocktail %></h3><br>
+            <ul>
+              <% cocktail.ingredients.each do |ingredient| %>
+              <li>
+                <%= ingredient.name  %>
+              </li>
+              <% end %>
+            </ul>
+            <div class="options">
+             <%= link_to '', cocktail, class: "fas fa-eye" %> <%= link_to '', edit_cocktail_path(cocktail), class: "fas fa-edit" %> <%= link_to '', cocktail, method: :delete, class: "fas fa-trash-alt", data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      <div>
+    </div>
+    <% end %>
+    <br>
+    <br>
+  </div>
 </div>
 
 

@@ -1,22 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
-<strong>Ingredients:</strong>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-  <li>
-    <%= "#{dose.ingredient.name} - #{dose.description} " %>
-    <%= link_to "Remove", cocktail_dose_path(@cocktail, dose), method: :delete %>
-
-  </li>
-  <% end %>
-</ul>
-
-
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %> |
-<%= link_to 'Delete dose', cocktail_doses_path(@cocktail) %> |
-<%= link_to 'Back', cocktails_path %> |
+<div class="guy" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('<%= cl_image_path @cocktail.photo, crop: :fill %>')">
+  <h1>
+      <%= @cocktail.name %>
+  </h1><br>
+  <h4>Ingredients:</h4><br>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+    <li>
+      <%= "#{dose.ingredient.name} - #{dose.description} - " %>
+      <%= link_to "", cocktail_dose_path(@cocktail, dose), method: :delete, class: "fas fa-trash-alt", data: { confirm: 'Are you sure?' } %>
+    </li><br>
+    <% end %>
+    <li><%= link_to '', new_cocktail_dose_path(@cocktail), class: "fas fa-plus" %> <%= link_to '', edit_cocktail_path(@cocktail), class: "fas fa-edit" %></li>
+  </ul>
+  <%= link_to 'Back', cocktails_path %>
+</div>

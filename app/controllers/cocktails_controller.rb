@@ -19,9 +19,9 @@ class CocktailsController < ApplicationController
   def edit
   end
 
-  # def search
-  #   @cocktails = Cocktail.where("name LIKE '%#{params[:search]}%'")
-  # end
+  def search
+    @cocktails = Cocktail.where("name ILIKE '%#{params[:search]}%'")
+  end
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
@@ -32,7 +32,6 @@ class CocktailsController < ApplicationController
     else
       render :new
     end
-    @cocktail.save
 
   end
 
@@ -55,6 +54,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end

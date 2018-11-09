@@ -4,27 +4,90 @@
 // Place all the styles related to the Flats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.cocktail {
-  background:rgb(240,240,240);
-  padding:20px;
-  height: 250px;
-  margin:10px 0px;
-  h3 {
-    padding:0px;
-    margin:0px
-  }
-  li {
-    list-style: none;
-  }
-  ul{
-    padding: 0px;
 
-  }
-  a {
-    text-decoration: none;
-  }
+
+
+.cocktail {
+  // background:rgb(40,40,40);
+  padding:30px;
+  height: 250px;
+  margin:15px 0px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover;
+  position: relative;
+
 }
 
+.navbar-wagon {
+  background-color: rgba(0,0,0,0)
+}
+
+h1{
+  font-family: 'Marck Script', cursive;
+  margin:none;
+  color: white
+}
+
+h2 {
+  padding:0px;
+  margin:0px;
+  font-weight: 300;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+h3 {
+  padding:0px;
+  margin:0px;
+  font-weight: 300;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+h4 {
+  padding:0px;
+  margin:0px;
+  font-weight: 300;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+li {
+  list-style: none;
+  font-weight: 200;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+ul{
+  padding: 0px;
+
+}
+a {
+  text-decoration: none;
+  color: white;
+
+}
+
+.options {
+  position: absolute;
+  bottom:10px;
+  right:15px;
+}
 .container {
   margin:20px;
+}
+
+.guy{
+  background-size: cover;
+  height: 100vh;
+  padding:50px;
+  position:sticky;
+}
+
+label {
+  color: white;
 }
